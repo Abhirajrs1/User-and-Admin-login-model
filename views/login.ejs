@@ -1,0 +1,48 @@
+<%- include('header') -%>
+    <div class="text-center center-div" id="login">
+        <div class="container w-25 border py-5 border-black">
+            <% if (locals.isAdmin){%>
+                <div class="title pb-5">
+                    <h2 class="font-weight-bold">Welcome Admin</h2>
+                </div>
+                <% } else { %>
+
+                    <div class="title pb-5">
+                        <h2 class="font-weight-bold">Login System</h2>
+                        <span>Log in for the existing user</span>
+                    </div>
+                    <% } %>
+
+                        <% if (locals.isAdmin){%>
+                            <form action="/admin/login" method="POST" class="pt-3">
+                                <% } else { %>
+                                    <form action="/user/login" method="POST" class="pt-3">
+                                        <% } %>
+                                            <div class="form-group">
+                                                <input type="email" class="form-control" placeholder="email"
+                                                    name="email">
+                                                <small class="form-text text-left text-black">Register email
+                                                    address</small>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" class="form-control" name="password"
+                                                    placeholder="password">
+                                            </div>
+                                            <button type="submit" class="btn btn-success  mt-5">Sign in</button>
+
+                                    </form>
+                                    <% if (!locals.isAdmin){%>
+                                        <a href="/signup">Don't have an account? Sign up</a><br>
+                                        <!-- <a href="/admin/login">Admin</a> -->
+                                        <% } %>
+
+                                            <!-- <form action="/route/signup" method="get">
+    <button type="submit" class="btn btn-success  mt-5">Signup</button>
+</form> -->
+                                            <p class="text-danger">
+                                                <%= locals.error ? locals.error : '' %>
+                                            </p>
+        </div>
+    </div>
+
+    <%- include('footer') -%>

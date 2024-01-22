@@ -1,0 +1,19 @@
+<%- include('header')  -%>
+<div class="text-center center-div" id="login">
+    <div class="container w-25 border py-5 border-black">
+    <form action="/route/signup" method="POST" class="pt-3">
+    <div class="form-group">
+        <input type="email" class="form-control" placeholder="email" name="email"><br>
+    </div>
+    <div class="form-group">   
+        <input type="password" class="form-control" name="password" placeholder="password"><br>
+    </div>
+    <div class="form-group">   
+        <input type="password" class="form-control" name="confirmPassword" placeholder="confirm password">
+    </div>
+    <button type="submit" class="btn btn-success  mt-5">Register</button>
+</form>
+<p class="text-danger"><%= locals.error ? locals.error : '' %></p>
+</div>
+</div>
+<%- include('footer') -%>
